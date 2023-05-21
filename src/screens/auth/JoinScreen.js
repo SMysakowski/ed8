@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { object, string, ref } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import ControlledInput from "../components/ControlledInput";
+import ControlledInput from "../../components/ControlledInput";
 
 const defaultValues = {
   email: "",

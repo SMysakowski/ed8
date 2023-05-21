@@ -1,5 +1,7 @@
-import { TextInput, StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { Controller } from "react-hook-form";
+
+import Input from "./Input";
 
 const ControlledInput = ({
   name,
@@ -28,10 +30,9 @@ const ControlledInput = ({
                 {actionRenderer ? actionRenderer() : <View />}
               </View>
             )}
-            <TextInput
-              style={[styles.input, isError && styles.inputError]}
+            <Input
               value={value}
-              ref={ref}
+              textInputRef={ref}
               onBlur={onBlur}
               id={name}
               onChangeText={(value) => onChange(value)}
@@ -51,18 +52,6 @@ export default ControlledInput;
 export const styles = StyleSheet.create({
   inputContainer: {
     width: "100%",
-  },
-  input: {
-    borderColor: "#6D6D78",
-    borderWidth: 1,
-    marginVertical: 4,
-    padding: 12,
-    paddingVertical: 18,
-    borderRadius: 12,
-    width: "100%",
-  },
-  inputError: {
-    borderColor: "red",
   },
   errorLabel: {
     color: "red",

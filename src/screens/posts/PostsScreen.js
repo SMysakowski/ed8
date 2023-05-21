@@ -1,13 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 
-import { usePosts } from "../hooks/usePosts";
-import PostList from "../components/PostList";
+import { usePosts } from "../../hooks/api/posts/usePosts";
+import PostList from "../../components/PostList";
 
 const Posts = ({ route, navigation }) => {
-  const {
-    params: { email },
-  } = route;
-
   const { data, isError, isLoading } = usePosts();
 
   const handleNavigateToPost = (postId) => {
@@ -18,7 +14,6 @@ const Posts = ({ route, navigation }) => {
 
   return (
     <View>
-      <Text>Hello {email}</Text>
       {isLoading && (
         <View style={styles.centeredContainer}>
           <Text>Loading...</Text>

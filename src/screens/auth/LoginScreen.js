@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import ControlledInput from "../components/ControlledInput";
+import ControlledInput from "../../components/ControlledInput";
+import Button from "../../components/Button";
 
 const defaultValues = {
   email: "xx@xx.xx",
@@ -23,10 +24,8 @@ export default function LoginScreen({ navigation }) {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = (data) => {
-    navigation.navigate("Posts", {
-      email: data.email,
-    });
+  const onSubmit = (_data) => {
+    navigation.navigate("Dashboard");
   };
 
   const onRegister = () => {
@@ -78,34 +77,7 @@ export default function LoginScreen({ navigation }) {
   );
 }
 
-const Button = ({ onPress, title, filled = true }) => (
-  <Pressable onPress={onPress}>
-    <View
-      style={[styles.buttonContainer, filled && styles.filledButtonContainer]}
-    >
-      <Text style={styles.buttonText}>{title}</Text>
-    </View>
-  </Pressable>
-);
-
 export const styles = StyleSheet.create({
-  buttonContainer: {
-    width: "100%",
-    borderRadius: 16,
-    borderColor: "#EAEAEA",
-    borderWidth: 1,
-    padding: 16,
-    marginVertical: 8,
-  },
-  filledButtonContainer: {
-    backgroundColor: "#FFDFD6",
-    borderColor: "#FFDFD6",
-  },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
   rootContainer: {
     flex: 1,
     alignItems: "center",

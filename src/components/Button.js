@@ -1,61 +1,33 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TouchableHighlight,
-  TouchableWithoutFeedback,
-  Pressable,
-} from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 
-import { styles } from "./Button.styles";
-
-const MyCustomHighlightButton = ({ onPress }) => {
-  return (
-    <TouchableHighlight
-      underlayColor={"yellow"}
-      activeOpacity={0.5}
-      onPress={onPress}
+const Button = ({ onPress, title, filled = true }) => (
+  <Pressable onPress={onPress}>
+    <View
+      style={[styles.buttonContainer, filled && styles.filledButtonContainer]}
     >
-      <View style={styles.button}>
-        <Text>Click me</Text>
-      </View>
-    </TouchableHighlight>
-  );
-};
+      <Text style={styles.buttonText}>{title}</Text>
+    </View>
+  </Pressable>
+);
 
-const MyCustomOpacityButton = ({ onPress }) => {
-  return (
-    <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
-      <View style={styles.button}>
-        <Text>Click me</Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
+export default Button;
 
-const MyCustomButtonWithoutFeedback = ({ onPress }) => {
-  return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.button}>
-        <Text>Click me</Text>
-      </View>
-    </TouchableWithoutFeedback>
-  );
-};
-
-const MyPressableButton = ({ onPress }) => {
-  return (
-    <Pressable onPress={onPress}>
-      <View style={styles.button}>
-        <Text>Click me</Text>
-      </View>
-    </Pressable>
-  );
-};
-
-export {
-  MyCustomButtonWithoutFeedback,
-  MyCustomHighlightButton,
-  MyCustomOpacityButton,
-  MyPressableButton,
-};
+const styles = StyleSheet.create({
+  buttonContainer: {
+    width: "100%",
+    borderRadius: 16,
+    borderColor: "#EAEAEA",
+    borderWidth: 1,
+    padding: 16,
+    marginVertical: 8,
+  },
+  filledButtonContainer: {
+    backgroundColor: "#FFDFD6",
+    borderColor: "#FFDFD6",
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+});

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-import { usePostById } from "../hooks/usePostById";
+import { usePostById } from "../../hooks/api/posts/usePostById";
 
 export default function PostScreen({ route }) {
   const {
