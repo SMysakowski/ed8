@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { PostScreen, PostsScreen } from "../screens/posts";
 import { UserScreen, UsersScreen } from "../screens/users";
 import { JoinScreen, LoginScreen } from "../screens/auth";
+import { NotesScreen } from "../screens/notes";
 import DashboardScreen from "../screens/Dashboard";
 
 const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ const RootNavigator = () => (
     <Stack.Screen name="Post" component={PostScreen} />
     <Stack.Screen name="Users" component={UsersScreen} />
     <Stack.Screen name="User" component={UserScreen} />
+    <Stack.Screen name="Notes" component={NotesScreen} />
     <Stack.Screen
       name="Dashboard"
       component={DashboardScreen}

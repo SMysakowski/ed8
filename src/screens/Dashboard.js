@@ -11,11 +11,16 @@ export default function Dashboard({ navigation }) {
     navigation.navigate("Users");
   };
 
+  const handleNavigateToNotes = () => {
+    navigation.navigate("Notes");
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Dashboard</Text>
       <Button title="Posts" onPress={handleNavigateToPosts} />
       <Button title="Users" onPress={handleNavigateToUsers} />
+      <Button title="Notes" onPress={handleNavigateToNotes} />
       <Button title="Logout" onPress={navigation.goBack} filled={false} />
     </View>
   );
